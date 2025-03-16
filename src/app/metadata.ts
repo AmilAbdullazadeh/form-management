@@ -7,7 +7,7 @@ export const defaultMetadata: Metadata = {
     default: 'Form Management',
   },
   description: 'A modern form management application for efficient data collection and organization',
-  keywords: ['form management', 'data collection', 'user management', 'forms', 'next.js'],
+  keywords: ['form management', 'data collection', 'form management', 'forms', 'next.js'],
   authors: [{ name: 'Form Management Team' }],
   icons: {
     icon: '/favicon.ico',
