@@ -3,7 +3,14 @@ import { FORM_FIELD_VALIDATION_ERRORS, FORM_VALIDATION_ERRORS } from "@/resource
 
 export const isNameEmpty = (name: string): boolean => !name.trim();
 export const isNameCapitalized = (name: string): boolean => /^[A-Z]/.test(name);
-export const isNameValidFormat = (name: string): boolean => /^[A-Za-z0-9]+$/.test(name);
+export const isNameValidFormat = (name: string, formElement: string): boolean => {
+  if (formElement === 'form') {
+    return /^[A-Za-z0-9\s]+$/.test(name);
+  } else if (formElement === 'field') {
+    return /^[A-Za-z0-9]+$/.test(name);
+  }
+  return false;
+}
 
 export const isFieldNameUnique = (name: string, fields: FormField[]): boolean => 
   !fields.some(field => field.name === name);
@@ -24,7 +31,7 @@ export const validateFieldName = (
     return { isValid: false, error: FORM_FIELD_VALIDATION_ERRORS.NAME_CAPITALIZATION };
   }
   
-  if (!isNameValidFormat(name)) {
+  if (!isNameValidFormat(name, 'field')) {
     return { isValid: false, error: FORM_FIELD_VALIDATION_ERRORS.NAME_FORMAT };
   }
   
@@ -49,7 +56,7 @@ export const validateFormName = (
     return { isValid: false, error: FORM_VALIDATION_ERRORS.NAME_CAPITALIZATION };
   }
   
-  if (!isNameValidFormat(name)) {
+  if (!isNameValidFormat(name, 'form')) {
     return { isValid: false, error: FORM_VALIDATION_ERRORS.NAME_FORMAT };
   }
   
