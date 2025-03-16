@@ -1,0 +1,14 @@
+@import '@/shared/styles/main';
+
+.card {
+  border: 1px solid $gray-100;
+  padding: $spacing-md;
+  border-radius: $border-radius-sm;
+  box-shadow: 0 2px 8px rgba($black, 0.1);
+}
+
+.action {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}

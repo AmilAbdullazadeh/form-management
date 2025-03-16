@@ -1,0 +1,28 @@
+@import '@/shared/styles/main';
+
+.formContainer {
+  padding: $spacing-md;
+}
+
+.readOnlyForm {
+  opacity: 0.9;
+  
+  input, 
+  select, 
+  textarea, 
+  .checkbox {
+    cursor: not-allowed;
+    background-color: $gray-100;
+    border-color: $gray-300;
+  }
+  
+  label {
+    color: $gray-600;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-md;
+}

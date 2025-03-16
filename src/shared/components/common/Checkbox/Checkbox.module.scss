@@ -1,0 +1,92 @@
+@import '@/shared/styles/main';
+
+.checkboxGroup {
+  margin-bottom: $spacing-md;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+  &:checked + .label .checkmark {
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+  &:checked + .label .checkmark:after {
+    display: block;
+  }
+
+  &:focus + .label .checkmark {
+    box-shadow: 0 0 0 2px rgba($primary, 0.25);
+  }
+
+  &:disabled + .label {
+    color: $gray-500;
+    cursor: not-allowed;
+  }
+
+  &:disabled + .label .checkmark {
+    background-color: $gray-200;
+    border-color: $gray-300;
+    cursor: not-allowed;
+  }
+
+  &.error + .label .checkmark {
+    border-color: $danger;
+  }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkmark {
+  position: relative;
+  display: inline-block;
+  height: 21px;
+  width: 20px;
+  background-color: $white;
+  border: 1.5px solid $gray-400;
+  border-radius: 3px;
+  margin-right: $spacing-sm;
+  transition: all 0.2s ease-in-out;
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid $white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+}
+
+.errorText {
+  margin-top: $spacing-xs;
+  font-size: $font-size-sm;
+  color: $danger;
+}
+
+.helperText {
+  margin-top: $spacing-xs;
+  font-size: $font-size-sm;
+  color: $gray-600;
+}

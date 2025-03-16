@@ -1,0 +1,22 @@
+@import '@/shared/styles/main';
+
+.errorContainer {
+  display: flex;
+  align-items: center;
+  margin-top: $spacing-xs;
+  color: $danger;
+  font-size: $font-size-sm;
+  line-height: 1.25rem;
+  gap: $spacing-xs;
+}
+
+.errorIcon {
+  margin-right: $spacing-xs;
+  flex-shrink: 0;
+  height: 1rem;
+  width: 1rem;
+}
+
+.errorText {
+  font-weight: $font-weight-medium;
+} 

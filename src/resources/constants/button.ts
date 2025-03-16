@@ -1,0 +1,15 @@
+export const BUTTON_TEXT = {
+  SHOW_DETAILS: 'Show details',
+  UPDATE: 'Update',
+  DELETE: 'Delete',
+  CLOSE: 'Close',
+  CANCEL: 'Cancel',
+  CREATE: 'Create',
+  SAVE_CHANGES: 'Save changes',
+  VIEW: 'View',
+  EDIT: 'Edit',
+  ADD: 'Add',
+  SUBMIT: 'Submit',
+  TRY_AGAIN: 'Try again',
+  GO_TO_FORMS: 'Go to forms',
+};

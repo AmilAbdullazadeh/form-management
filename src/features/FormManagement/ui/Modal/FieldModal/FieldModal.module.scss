@@ -1,0 +1,15 @@
+@import '@/shared/styles/main';
+
+.form {
+  padding: $spacing-md;
+}
+
+.formGroup {
+  margin-bottom: $spacing-lg;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing-md;
+}

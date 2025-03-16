@@ -1,0 +1,113 @@
+@import '@/shared/styles/main';
+
+.fieldsSection {
+  margin-top: $spacing-xl;
+  border-top: 1px solid $gray-200;
+  padding-top: $spacing-md;
+}
+
+.fieldsSectionHeader {
+  @include flex-between-center;
+  margin-bottom: $spacing-md;
+}
+
+.fieldsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.fieldItem {
+  @include flex-between-center;
+  padding: $spacing-sm;
+  border: 1px solid $gray-200;
+  border-radius: $border-radius-sm;
+  background-color: $gray-100;
+  transition: all 0.2s ease;
+  cursor: default;
+
+  &:hover {
+    background-color: $gray-200;
+  }
+  
+  &.dragging {
+    opacity: 0.4;
+    border: 1px dashed $primary;
+  }
+  
+  &[draggable=true] {
+    cursor: grab;
+    
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
+
+.fieldInfo {
+  @include flex-center;
+  gap: $spacing-sm;
+}
+
+.fieldActions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.dragHandle {
+  color: $gray-500;
+  font-size: $font-size-lg;
+  cursor: grab;
+  user-select: none;
+  margin-right: $spacing-xs;
+  
+  &:hover {
+    color: $gray-700;
+  }
+}
+
+.fieldLabel {
+  font-weight: $font-weight-medium;
+}
+
+.fieldType {
+  font-size: $font-size-xs;
+  color: $gray-600;
+  padding: $spacing-xs $spacing-sm;
+  background-color: $gray-200;
+  border-radius: $border-radius-md;
+}
+
+.fieldRequired {
+  font-size: $font-size-xs;
+  color: $danger;
+  padding: $spacing-xs $spacing-sm;
+  background-color: rgba($danger, 0.1);
+  border-radius: $border-radius-md;
+}
+
+.noFields {
+  text-align: center;
+  padding: $spacing-md;
+  color: $gray-600;
+  background-color: $gray-100;
+  border: 1px dashed $gray-300;
+  border-radius: $border-radius-md;
+}
+
+.editButton,
+.deleteButton {
+  min-width: auto;
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-xs;
+  border: none !important;
+}
+
+.editButton {
+  color: $primary;
+  
+  &:hover {
+    background-color: rgba($primary, 0.1);
+  }
+} 

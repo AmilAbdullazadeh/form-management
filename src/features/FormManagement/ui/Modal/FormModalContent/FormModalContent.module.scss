@@ -1,0 +1,67 @@
+@import '@/shared/styles/main';
+
+.formGroup {
+  margin-bottom: $spacing-lg;
+}
+
+.checkboxGroup {
+  @include flex;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+}
+
+.submitError {
+  margin-top: $spacing-md;
+  padding: $spacing-sm + $spacing-xs;
+  border-radius: $spacing-xs;
+  background-color: rgba($danger, 0.1);
+  color: $danger;
+}
+
+.formSummary {
+  margin-bottom: $spacing-md;
+  padding: $spacing-md;
+  background-color: $gray-100;
+  border-radius: $border-radius-md;
+  border: 1px solid $gray-200;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing-md;
+}
+
+.formSummaryItem {
+  @include flex;
+  @include items-center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xs;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.formSummaryLabel {
+  font-weight: $font-weight-medium;
+  color: $gray-700;
+}
+
+.formSummaryValue {
+  font-weight: $font-weight-bold;
+  color: $primary;
+  background-color: rgba($primary, 0.1);
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+}
+
+.fieldsContainer {
+  margin-bottom: $spacing-md;
+  
+  &.readOnlyFields {
+    .dragHandle {
+      display: none;
+    }
+  }
+}
