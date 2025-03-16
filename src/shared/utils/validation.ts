@@ -3,10 +3,10 @@ import { FORM_FIELD_VALIDATION_ERRORS, FORM_VALIDATION_ERRORS } from "@/resource
 
 export const isNameEmpty = (name: string): boolean => !name.trim();
 export const isNameCapitalized = (name: string): boolean => /^[A-Z]/.test(name);
-export const isNameValidFormat = (name: string, formElement: string): boolean => {
-  if (formElement === 'form') {
+export const isNameValidFormat = (name: string, item: string): boolean => {
+  if (item === 'form') {
     return /^[A-Za-z0-9\s]+$/.test(name);
-  } else if (formElement === 'field') {
+  } else if (item === 'field') {
     return /^[A-Za-z0-9]+$/.test(name);
   }
   return false;
