@@ -5,11 +5,11 @@ import React, { useCallback } from 'react';
 import { FieldModalProps } from '@/features/FormManagement/api/models/FormManagementModel';
 import { useField } from '@/features/FormManagement/ui/Modal/FieldModal/hooks/useField';
 import { FIELD_TYPE_OPTIONS } from '@/resources/constants/form';
-import { Button } from '@/shared/components/common/Button/Button';
-import { Checkbox } from '@/shared/components/common/Checkbox/Checkbox';
-import { Input } from '@/shared/components/common/Input/Input';
-import { Modal } from '@/shared/components/common/Modal/Modal';
-import { Select } from '@/shared/components/common/Select/Select';
+import { Button } from '@/shared/ui/Button/Button';
+import { Checkbox } from '@/shared/ui/Checkbox/Checkbox';
+import { Input } from '@/shared/ui/Input/Input';
+import { Modal } from '@/shared/ui/Modal/Modal';
+import { Select } from '@/shared/ui/Select/Select';
 
 import styles from './FieldModal.module.scss';
 

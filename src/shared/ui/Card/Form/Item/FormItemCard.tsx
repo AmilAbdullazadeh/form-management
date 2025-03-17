@@ -5,9 +5,9 @@ import React from 'react';
 import { Eye } from '@/resources/assets/icons/Eye';
 import { Trash } from '@/resources/assets/icons/Trash';
 import { Update } from '@/resources/assets/icons/Update';
-import { Button } from '@/shared/components/common/Button/Button';
-import { FormCard } from '@/shared/components/common/Card/Form/FormCard';
-import { BadgeVariant } from '@/shared/components/common/Card/Form/FormCard.types';
+import { Button } from '@/shared/ui/Button/Button';
+import { FormCard } from '@/shared/ui/Card/Form/FormCard';
+import { BadgeVariant } from '@/shared/ui/Card/Form/FormCard.types';
 import { Variant } from '@/shared/types/variant';
 
 import styles from './FormItemCard.module.scss';

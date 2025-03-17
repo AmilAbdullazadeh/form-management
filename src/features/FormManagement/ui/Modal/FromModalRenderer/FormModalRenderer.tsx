@@ -6,8 +6,8 @@ import { FormModalMode } from '@/features/FormManagement/api/models/FormManageme
 import styles from '@/features/FormManagement/ui/Modal/FormModalContent/FormModalContent.module.scss';
 import { BUTTON_TEXT } from '@/resources/constants/button';
 import { FORM_MODAL_TEXT } from '@/resources/constants/form';
-import { Button } from '@/shared/components/common/Button/Button';
-import { Modal } from '@/shared/components/common/Modal/Modal';
+import { Button } from '@/shared/ui/Button/Button';
+import { Modal } from '@/shared/ui/Modal/Modal';
  
 import { FieldModal } from '../FieldModal/FieldModal';
 import { FormContent } from '../FormModalContent/FormModalContent';

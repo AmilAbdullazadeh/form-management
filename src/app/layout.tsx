@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import React from 'react';
 
-import { ModalProvider } from '@/shared/components/common/Modal/ModalContent/ModalContext';
+import { ModalProvider } from '@/shared/ui/Modal/ModalContent/ModalContext';
 import { ReduxProvider } from '@/shared/providers/ReduxProvider';
 
 import { defaultMetadata } from './metadata';

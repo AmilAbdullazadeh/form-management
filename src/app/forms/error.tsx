@@ -2,10 +2,9 @@
 
 import React from 'react';
 
-import '@/shared/styles/global.scss';
 import { Warning } from '@/resources/assets/icons/Warning';
-import { Button } from '@/shared/components/common/Button/Button';
 import { BUTTON_TEXT } from '@/resources/constants/button';
+import { Button } from '@/shared/ui/Button/Button';
 
 interface ErrorProps {
   error: Error & { digest?: string };

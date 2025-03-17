@@ -8,11 +8,7 @@ interface UseFormProps<T> {
   validate?: (values: T) => Partial<Record<keyof T, string>>;
 }
 
-/**
- * @param initialValues - Initial values for the form
- * @param onSubmit - Function to call when the form is submitted
- * @param validate - Optional function to validate form values
- */
+// For managing form state and validation
 export const useForm = <T extends Record<string, any>>({
   initialValues,
   onSubmit,

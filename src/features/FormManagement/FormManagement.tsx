@@ -6,10 +6,10 @@ import { FormModal } from '@/features/FormManagement/ui/Modal/FormModal/FormModa
 import { Plus } from '@/resources/assets/icons/Plus';
 import { BUTTON_TEXT } from '@/resources/constants/button';
 import { FORM_BUTTON_TEXT, FORM_EMPTY_STATES, FORM_MODAL_TEXT } from '@/resources/constants/form';
-import { Button } from '@/shared/components/common/Button/Button';
-import { FormCardList } from '@/shared/components/common/Card/Form/List/FormCardList';
-import formStyles from '@/shared/components/common/Card/Form/List/FormCardList.module.scss';
-import { useModal } from '@/shared/components/common/Modal/ModalContent/ModalContext';
+import { Button } from '@/shared/ui/Button/Button';
+import { FormCardList } from '@/shared/ui/Card/Form/List/FormCardList';
+import formStyles from '@/shared/ui/Card/Form/List/FormCardList.module.scss';
+import { useModal } from '@/shared/ui/Modal/ModalContent/ModalContext';
 
 import { FormModalMode, FormModalState } from './api/models/FormManagementModel';
 import { useDeleteFormMutation } from './api/slices/FormManagementSlice';
@@ -90,6 +90,7 @@ export const FormManagement: React.FC = () => {
       });
     }
   }, [forms, openModal, closeModal, deleteForm, isDeleting]);
+  
   const handleCloseModal = useCallback(() => {
     setModalState(prev => ({
       ...prev,

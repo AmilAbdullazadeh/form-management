@@ -1,6 +1,6 @@
 @import '@/shared/styles/main';
 
-.errorContainer {
+.container {
   display: flex;
   align-items: center;
   margin-top: $spacing-xs;
@@ -17,6 +17,6 @@
   width: 1rem;
 }
 
-.errorText {
+.text {
   font-weight: $font-weight-medium;
-} 
+}

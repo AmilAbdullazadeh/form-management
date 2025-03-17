@@ -3,13 +3,15 @@
 import React from 'react';
 
 import { FORM_EMPTY_STATES } from '@/resources/constants/form';
-import { Checkbox } from '@/shared/components/common/Checkbox/Checkbox';
-import { ErrorMessage } from '@/shared/components/common/ErrorMessage/ErrorMessage';
-import { FieldList } from '@/shared/components/common/FieldList/FieldList';
-import { Input } from '@/shared/components/common/Input/Input';
+import { Status } from '@/shared/types/status';
+import { Checkbox } from '@/shared/ui/Checkbox/Checkbox';
+import { FieldList } from '@/shared/ui/FieldList/FieldList';
+import { Input } from '@/shared/ui/Input/Input';
+import { Message } from '@/shared/ui/Message/Message';
 
 import styles from './FormModalContent.module.scss';
 import { FormModalContentProps } from './FormModalContent.types';
+
 
 
 export const FormContent = ({ 
@@ -39,7 +41,6 @@ export const FormContent = ({
           error={errors.name}
           fullWidth
           required
-          autoFocus
           disabled={isViewOnly}
         />
       </div>
@@ -91,7 +92,7 @@ export const FormContent = ({
       
       {submitError && (
         <div className={styles.submitError}>
-          <ErrorMessage message={submitError} />
+          <Message message={submitError} type={Status.ERROR} />
         </div>
       )}
     </>

@@ -3,7 +3,7 @@
 import { useCallback, useState } from 'react';
 
 import { FormField } from '@/features/FormManagement/api/models/FormApiModel';
-import { useModalState } from '@/shared/hooks/useModalState';
+import { useModal } from '@/shared/hooks/useModal';
 
 interface UseFormFieldsProps {
   initialFields?: FormField[];
@@ -12,7 +12,7 @@ interface UseFormFieldsProps {
 export const useFormField = ({ initialFields = [] }: UseFormFieldsProps = {}) => {
   const [fields, setFields] = useState<FormField[]>(initialFields);
   const [selectedField, setSelectedField] = useState<FormField | undefined>(undefined);
-  const fieldModal = useModalState(false);
+  const fieldModal = useModal({ initialState: false });
 
   const resetFields = useCallback((newFields: FormField[] = []) => {
     setFields(newFields);

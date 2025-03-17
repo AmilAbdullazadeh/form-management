@@ -1,10 +1,16 @@
+'use client';
+
 import { useState, useCallback } from 'react';
 
-export function useModal() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [data, setData] = useState<any>(null);
+export interface UseModalOptions {
+  initialState?: boolean;
+}
 
-  const open = useCallback((modalData?: any) => {
+export function useModal<T = any>({ initialState = false }: UseModalOptions = {}) {
+  const [isOpen, setIsOpen] = useState(initialState);
+  const [data, setData] = useState<T | null>(null);
+
+  const open = useCallback((modalData?: T) => {
     setIsOpen(true);
     if (modalData !== undefined) {
       setData(modalData);

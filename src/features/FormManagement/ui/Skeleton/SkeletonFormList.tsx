@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SkeletonCard } from '@/shared/components/common/Skeleton/Card/SkeletonCard';
+import { SkeletonCard } from '@/shared/ui/Skeleton/Card/SkeletonCard';
 
 import { SkeletonFormListProps } from './SkeletonFormList.types';
 

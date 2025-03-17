@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { Skeleton } from '@/shared/components/common/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 export const metadata: Metadata = {
   title: 'Forms',
