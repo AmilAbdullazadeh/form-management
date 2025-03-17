@@ -35,7 +35,7 @@ A modern web application for form management built with Next.js, TypeScript, Red
 
    Create a `.env` file in the root directory with the following variables:
    ```
-   NEXT_PUBLIC_API_URL=your_api_url
+   NEXT_PUBLIC_API_URL=your_api_url (e.g. https://user-management-back-drab.vercel.app)
    ```
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
