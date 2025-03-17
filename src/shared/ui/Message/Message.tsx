@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Warning } from '@/resources/assets/icons/Warning';
-import { Status } from '@/shared/types/status';
+import { Status } from '@/shared/models/enums/status';
 
 import styles from './Message.module.scss';
 import { MessageProps } from './Message.types';

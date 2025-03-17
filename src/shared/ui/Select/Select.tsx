@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { Status } from '@/shared/types/status';
+import { Status } from '@/shared/models/enums/status';
 import { Message } from '@/shared/ui/Message/Message';
 import { classNames } from '@/shared/utils/classNames';
 

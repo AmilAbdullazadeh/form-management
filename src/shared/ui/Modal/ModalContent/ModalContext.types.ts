@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
 
-import { ModalSize } from "../../types";
+import { Size } from "@/shared/models/types/base";
 
 export interface ModalConfig {
     title: string;
     content: ReactNode;
     footer?: ReactNode;
-    size?: ModalSize;
+    size?: Size;
     closeOnOutsideClick?: boolean;
   }
   

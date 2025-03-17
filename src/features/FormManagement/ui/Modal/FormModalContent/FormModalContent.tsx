@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { FORM_EMPTY_STATES } from '@/resources/constants/form';
-import { Status } from '@/shared/types/status';
+import { Status } from '@/shared/models/enums/status';
 import { Checkbox } from '@/shared/ui/Checkbox/Checkbox';
 import { FieldList } from '@/shared/ui/FieldList/FieldList';
 import { Input } from '@/shared/ui/Input/Input';

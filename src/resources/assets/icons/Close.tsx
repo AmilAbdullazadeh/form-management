@@ -1,4 +1,4 @@
-import { IconProps } from "@/shared/types/icon";
+import { IconProps } from "@/shared/models/icon";
 
 export function Close({
   fill = '#fff',

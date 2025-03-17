@@ -10,7 +10,7 @@ import { useFormField } from '@/features/FormManagement/hooks/useFormField';
 import { useFormMode } from '@/features/FormManagement/hooks/useFormMode';
 import { FORM_SUBMIT_ERRORS } from '@/resources/constants/form';
 import { useForm } from '@/shared/hooks/useForm';
-import { Operation } from '@/shared/types/base';
+import { Operation } from '@/shared/models/enums/operation';
 import { validateFormName } from '@/shared/utils/validation';
 
 import { FormModalRenderer } from '../FromModalRenderer/FormModalRenderer';
