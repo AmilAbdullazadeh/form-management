@@ -6,14 +6,13 @@ import { Status } from '@/shared/models/enums/status';
 import styles from './Message.module.scss';
 import { MessageProps } from './Message.types';
 
-
 export const Message: React.FC<MessageProps> = ({ message, type }) => {
   if (!message) return null;
-  
+
   return (
     <div className={styles.container} role="alert">
-      { (type === Status.ERROR || type === Status.WARNING) && <Warning /> }
+      {(type === Status.ERROR || type === Status.WARNING) && <Warning />}
       <span className={styles.text}>{message}</span>
     </div>
   );
-}; 
+};

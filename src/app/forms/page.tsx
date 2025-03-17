@@ -5,7 +5,8 @@ import { FormManagement } from '@/features/FormManagement/FormManagement';
 
 export const metadata: Metadata = {
   title: 'Forms',
-  description: 'Manage and organize your forms efficiently. Create, edit, and track form submissions in one place.',
+  description:
+    'Manage and organize your forms efficiently. Create, edit, and track form submissions in one place.',
 };
 
 export default function FormsPage() {
@@ -14,4 +15,4 @@ export default function FormsPage() {
       <FormManagement />
     </main>
   );
-} 
+}

@@ -23,7 +23,7 @@ export function useModal<T = any>({ initialState = false }: UseModalOptions = {}
   }, []);
 
   const toggle = useCallback(() => {
-    setIsOpen((prev) => !prev);
+    setIsOpen(prev => !prev);
   }, []);
 
   return {
@@ -34,4 +34,4 @@ export function useModal<T = any>({ initialState = false }: UseModalOptions = {}
     toggle,
     setData,
   };
-} 
+}

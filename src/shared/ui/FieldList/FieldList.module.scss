@@ -29,15 +29,15 @@
   &:hover {
     background-color: $gray-200;
   }
-  
+
   &.dragging {
     opacity: 0.4;
     border: 1px dashed $primary;
   }
-  
-  &[draggable=true] {
+
+  &[draggable='true'] {
     cursor: grab;
-    
+
     &:active {
       cursor: grabbing;
     }
@@ -61,7 +61,7 @@
   cursor: grab;
   user-select: none;
   margin-right: $spacing-xs;
-  
+
   &:hover {
     color: $gray-700;
   }
@@ -106,8 +106,8 @@
 
 .editButton {
   color: $primary;
-  
+
   &:hover {
     background-color: rgba($primary, 0.1);
   }
-} 
+}

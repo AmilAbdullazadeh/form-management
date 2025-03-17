@@ -1,6 +1,6 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 export interface SkeletonCardProps {
-    className?: string;
-    style?: CSSProperties;
-  }
+  className?: string;
+  style?: CSSProperties;
+}

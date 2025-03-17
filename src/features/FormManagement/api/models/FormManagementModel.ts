@@ -4,14 +4,14 @@ export enum FormModalMode {
   CREATE = 'creating',
   UPDATE = 'updating',
   VIEW = 'viewing',
-  DELETE = 'deleting'
+  DELETE = 'deleting',
 }
 
 export interface FormModalState {
   isOpen: boolean;
   mode: FormModalMode;
   selectedFormId: string | null;
-} 
+}
 
 export interface FormValues {
   name: string;

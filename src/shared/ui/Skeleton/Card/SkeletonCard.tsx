@@ -5,7 +5,6 @@ import { Skeleton } from '../Skeleton';
 import styles from './SkeletonCard.module.scss';
 import { SkeletonCardProps } from './SkeletonCard.types';
 
-
 export const SkeletonCard: React.FC<SkeletonCardProps> = ({ className = '', style = {} }) => {
   return (
     <div className={`${styles.card} ${className}`} style={style}>
@@ -17,4 +16,4 @@ export const SkeletonCard: React.FC<SkeletonCardProps> = ({ className = '', styl
       </div>
     </div>
   );
-}; 
+};

@@ -1,4 +1,4 @@
-import { Form } from "@/features/FormManagement/api/models/FormApiModel";
+import { Form } from '@/features/FormManagement/api/models/FormApiModel';
 
 export interface FormItemCardProps {
   form: Form;

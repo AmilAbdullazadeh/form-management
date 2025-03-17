@@ -1,10 +1,7 @@
-import { IconProps } from "@/shared/models/icon";
+import { Icon } from "@/shared/models/types/base";
 
-export function Plus({
-  fill = '',
-  stroke = '#fff',
-  className = '',
-}: IconProps) {
+
+export function Plus({ fill = '', stroke = '#fff', className = '' }: Icon) {
   return (
     <svg
       width="24"
@@ -14,13 +11,13 @@ export function Plus({
       className={className}
       xmlns="http://www.w3.org/2000/svg"
     >
-        <path 
-            d="M12 6V18M18 12L6 12"
-            stroke={stroke} 
-            strokeWidth="1.5" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-        />
+      <path
+        d="M12 6V18M18 12L6 12"
+        stroke={stroke}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }

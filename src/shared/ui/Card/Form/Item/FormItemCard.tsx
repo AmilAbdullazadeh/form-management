@@ -13,56 +13,52 @@ import { BadgeVariant } from '@/shared/ui/Card/Form/FormCard.types';
 import styles from './FormItemCard.module.scss';
 import { FormItemCardProps } from './FormItemCard.types';
 
-
 export const FormItemCard: React.FC<FormItemCardProps> = ({
   form,
   onEdit,
   onDelete,
-  className = ''
+  className = '',
 }) => {
   const { name, isVisible, isReadOnly, fields } = form;
-  
+
   // Get badge data based on type
-  const getBadge = (type: 'visible' | 'readonly'): { text: string, variant: BadgeVariant } => {
+  const getBadge = (type: 'visible' | 'readonly'): { text: string; variant: BadgeVariant } => {
     if (type === 'visible') {
       return {
         text: isVisible ? 'Visible' : 'Hidden',
-        variant: isVisible ? Status.SUCCESS : Status.DANGER
+        variant: isVisible ? Status.SUCCESS : Status.DANGER,
       };
     } else {
       return {
         text: isReadOnly ? 'Read only' : 'Editable',
-        variant: isReadOnly ? Status.WARNING : Status.SUCCESS
+        variant: isReadOnly ? Status.WARNING : Status.SUCCESS,
       };
     }
   };
-  
+
   const handleEdit = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (onEdit) onEdit(form._id!);
   };
-  
+
   const handleDelete = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (onDelete) onDelete(form._id!);
   };
 
-  const fieldCountDisplay = fields ? {
-    icon: <span className={styles.fieldIcon}>📋</span>,
-    text: `${fields.length} ${fields.length === 1 ? 'Field' : 'Fields'}`
-  } : null;
+  const fieldCountDisplay = fields
+    ? {
+        icon: <span className={styles.fieldIcon}>📋</span>,
+        text: `${fields.length} ${fields.length === 1 ? 'Field' : 'Fields'}`,
+      }
+    : null;
 
   return (
     <FormCard
       title={name}
-      badge={[
-        getBadge('visible'),
-        getBadge('readonly')
-      ]}
+      badge={[getBadge('visible'), getBadge('readonly')]}
       className={`${className} ${isReadOnly ? styles.readOnly : ''} ${!isVisible ? styles.hidden : ''}`}
-      metadata={[
-        ...(fieldCountDisplay ? [fieldCountDisplay] : [])
-      ]}
+      metadata={[...(fieldCountDisplay ? [fieldCountDisplay] : [])]}
       actions={
         <>
           {onEdit && (
@@ -76,7 +72,7 @@ export const FormItemCard: React.FC<FormItemCardProps> = ({
               title={isReadOnly ? 'View' : 'Edit'}
             />
           )}
-          
+
           {onDelete && (
             <Button
               className={`${styles.button} ${styles.deleteButton}`}
@@ -92,4 +88,4 @@ export const FormItemCard: React.FC<FormItemCardProps> = ({
       }
     />
   );
-}; 
+};

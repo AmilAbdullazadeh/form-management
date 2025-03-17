@@ -7,33 +7,35 @@ import { classNames } from '@/shared/utils/classNames';
 import styles from './Input.module.scss';
 import { InputProps } from './Input.type';
 
-
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ 
-    label, 
-    error, 
-    fullWidth = false, 
-    className = '', 
-    disabled = false,
-    containerClassName = '',
-    ...props 
-  }, ref) => {
+  (
+    {
+      label,
+      error,
+      fullWidth = false,
+      className = '',
+      disabled = false,
+      containerClassName = '',
+      ...props
+    },
+    ref
+  ) => {
     const inputClasses = classNames(
       styles.input,
       {
         [styles.disabled]: disabled,
         [styles.error]: !!error,
-        [styles.full]: fullWidth
+        [styles.full]: fullWidth,
       },
       className
     );
-    
+
     const containerClasses = classNames(
       styles.formGroup,
       { [styles.full]: fullWidth },
       containerClassName
     );
-    
+
     return (
       <div className={containerClasses}>
         {label && (
@@ -55,4 +57,3 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
 // Add display name for React DevTools
 Input.displayName = 'Input';
- 

@@ -1,6 +1,9 @@
 'use client';
 
-import { FormModalMode, FormModeProps } from '@/features/FormManagement/api/models/FormManagementModel';
+import {
+  FormModalMode,
+  FormModeProps,
+} from '@/features/FormManagement/api/models/FormManagementModel';
 
 export const useFormMode = ({ mode, initialValues }: FormModeProps) => {
   const isUpdateMode = mode === FormModalMode.UPDATE;
@@ -10,6 +13,6 @@ export const useFormMode = ({ mode, initialValues }: FormModeProps) => {
     isUpdateMode,
     isViewOnly,
     isCreateMode: mode === FormModalMode.CREATE,
-    isViewMode: mode === FormModalMode.VIEW
+    isViewMode: mode === FormModalMode.VIEW,
   };
-}; 
+};

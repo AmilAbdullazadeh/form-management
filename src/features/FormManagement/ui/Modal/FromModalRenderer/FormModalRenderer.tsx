@@ -8,12 +8,11 @@ import { BUTTON_TEXT } from '@/resources/constants/button';
 import { FORM_MODAL_TEXT } from '@/resources/constants/form';
 import { Button } from '@/shared/ui/Button/Button';
 import { Modal } from '@/shared/ui/Modal/Modal';
- 
+
 import { FieldModal } from '../FieldModal/FieldModal';
 import { FormContent } from '../FormModalContent/FormModalContent';
 
 import { FormModalRenderProps } from './FormModalRenderer.types';
-
 
 export const FormModalRenderer: React.FC<FormModalRenderProps> = ({
   isOpen,
@@ -35,37 +34,32 @@ export const FormModalRenderer: React.FC<FormModalRenderProps> = ({
   handleSaveField,
   formId,
   reorderFormFields,
-  selectedField
+  selectedField,
 }) => {
   // Modal title and submit button text based on mode
-  const modalTitle = isViewOnly ? FORM_MODAL_TEXT[FormModalMode.VIEW].TITLE : FORM_MODAL_TEXT[mode].TITLE;
+  const modalTitle = isViewOnly
+    ? FORM_MODAL_TEXT[FormModalMode.VIEW].TITLE
+    : FORM_MODAL_TEXT[mode].TITLE;
   const submitButtonText = FORM_MODAL_TEXT[mode].SUBMIT_BUTTON;
-  
+
   // Modal footer with action buttons - hide submit button in view-only mode
   const footerRenderer = (
     <div className="button-wrapper">
-      <Button 
-        variant="outline" 
-        onClick={onClose} 
-        disabled={isSubmitting}
-      >
+      <Button variant="outline" onClick={onClose} disabled={isSubmitting}>
         {BUTTON_TEXT.CANCEL}
       </Button>
       {!isViewOnly && (
-        <Button 
-          type="submit"
-          form="form-modal"
-          isLoading={isSubmitting}
-        >
+        <Button type="submit" form="form-modal" isLoading={isSubmitting}>
           {submitButtonText}
         </Button>
       )}
     </div>
   );
 
-  const enhancedTitle = isViewOnly && formFields.length > 0 
-    ? `${modalTitle} (${formFields.length} fields)` 
-    : modalTitle;
+  const enhancedTitle =
+    isViewOnly && formFields.length > 0
+      ? `${modalTitle} (${formFields.length} fields)`
+      : modalTitle;
 
   return (
     <Modal
@@ -77,7 +71,7 @@ export const FormModalRenderer: React.FC<FormModalRenderProps> = ({
     >
       <div className={`${styles.formContainer} ${isViewOnly ? styles.readOnlyForm : ''}`}>
         <form id="form-modal" onSubmit={handleSubmit} noValidate>
-          <FormContent 
+          <FormContent
             values={values}
             errors={errors}
             handleChange={handleChange}
@@ -91,7 +85,7 @@ export const FormModalRenderer: React.FC<FormModalRenderProps> = ({
           />
         </form>
       </div>
-      
+
       <FieldModal
         isOpen={isFieldModalOpen}
         onClose={handleCloseFieldModal}
@@ -101,4 +95,4 @@ export const FormModalRenderer: React.FC<FormModalRenderProps> = ({
       />
     </Modal>
   );
-}; 
+};

@@ -13,7 +13,6 @@ import { Button } from '../Button/Button';
 import styles from './FieldList.module.scss';
 import { FieldListProps } from './FieldList.types';
 
-
 export const FieldList: React.FC<FieldListProps> = ({
   fields,
   isViewOnly,
@@ -22,22 +21,17 @@ export const FieldList: React.FC<FieldListProps> = ({
   onEditField,
   onReorderFields,
   addButtonLabel = 'Add Field',
-  emptyMessage = FORM_EMPTY_STATES.NO_FIELDS_ADDED
+  emptyMessage = FORM_EMPTY_STATES.NO_FIELDS_ADDED,
 }) => {
-  const { 
-    draggedItem,
-    handleDragStart,
-    handleDragOver,
-    handleDragEnd,
-    handleDrop
-  } = useDragAndDrop({
-    items: fields,
-    onReorder: (reorderedItems) => {
-      if (onReorderFields) {
-        onReorderFields(reorderedItems);
-      }
-    }
-  });
+  const { draggedItem, handleDragStart, handleDragOver, handleDragEnd, handleDrop } =
+    useDragAndDrop({
+      items: fields,
+      onReorder: reorderedItems => {
+        if (onReorderFields) {
+          onReorderFields(reorderedItems);
+        }
+      },
+    });
 
   const handleAddFieldClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -76,17 +70,17 @@ export const FieldList: React.FC<FieldListProps> = ({
           {addButtonLabel}
         </Button>
       </div>
-      
+
       {fields.length > 0 ? (
         <div className={styles.fieldsList}>
           {fields.map(field => (
-            <div 
-              key={field.name} 
+            <div
+              key={field.name}
               className={`${styles.fieldItem} ${draggedItem?.name === field.name ? styles.dragging : ''}`}
               draggable={isDragEnabled}
-              onDragStart={isDragEnabled ? (e) => handleDragStart(e, field) : undefined}
+              onDragStart={isDragEnabled ? e => handleDragStart(e, field) : undefined}
               onDragOver={isDragEnabled ? handleDragOver : undefined}
-              onDrop={isDragEnabled ? (e) => handleDrop(e, field) : undefined}
+              onDrop={isDragEnabled ? e => handleDrop(e, field) : undefined}
               onDragEnd={isDragEnabled ? handleDragEnd : undefined}
             >
               <div className={styles.fieldInfo}>
@@ -104,7 +98,7 @@ export const FieldList: React.FC<FieldListProps> = ({
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={(e) => handleEditField(e, field)}
+                    onClick={e => handleEditField(e, field)}
                     type="button"
                     className={styles.editButton}
                     icon={<Update />}
@@ -115,7 +109,7 @@ export const FieldList: React.FC<FieldListProps> = ({
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={(e) => handleDeleteField(e, field.name)}
+                    onClick={e => handleDeleteField(e, field.name)}
                     type="button"
                     className={styles.deleteButton}
                     icon={<Trash />}
@@ -127,10 +121,8 @@ export const FieldList: React.FC<FieldListProps> = ({
           ))}
         </div>
       ) : (
-        <div className={styles.noFields}>
-          {emptyMessage}
-        </div>
+        <div className={styles.noFields}>{emptyMessage}</div>
       )}
     </div>
   );
-}; 
+};

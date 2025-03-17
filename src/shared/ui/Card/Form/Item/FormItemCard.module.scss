@@ -4,7 +4,7 @@
   padding: $spacing-sm !important;
   border-radius: 50%;
   transition: all 0.2s ease;
-  
+
   &:hover {
     transform: translateY(-1px);
   }
@@ -13,7 +13,7 @@
 .editButton {
   color: $primary;
   border-color: $primary;
-  
+
   &:hover {
     background-color: rgba($primary, 0.1);
   }
@@ -23,7 +23,7 @@
   color: $info;
   border-color: $info;
   opacity: 1 !important;
-  
+
   &:hover {
     background-color: rgba($info, 0.1);
   }
@@ -32,11 +32,11 @@
 .deleteButton {
   color: $danger;
   border-color: $danger;
-  
+
   &:hover:not(:disabled) {
     background-color: rgba($danger, 0.1);
   }
-  
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -51,21 +51,23 @@
 
 .readOnly {
   border-left: 4px solid $warning;
-  
-  .button:not(.viewButton), .button:not(.editButton) {
+
+  .button:not(.viewButton),
+  .button:not(.editButton) {
     opacity: 0.5;
   }
-  
+
   &:hover {
     box-shadow: 0 4px 12px rgba($warning, 0.2);
   }
-  
+
   .viewButton {
     opacity: 1;
   }
 }
 
-.fieldIcon, .submissionIcon {
+.fieldIcon,
+.submissionIcon {
   font-size: $font-size-base;
   margin-right: $spacing-xs;
   display: inline-flex;

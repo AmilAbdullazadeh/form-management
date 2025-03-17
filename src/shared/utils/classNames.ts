@@ -5,7 +5,7 @@ export const classNames = (...classes: ClassValue[]): string => {
 
   classes.forEach(value => {
     if (!value) return;
-    
+
     if (typeof value === 'string') {
       result.push(value);
     } else if (typeof value === 'object') {
@@ -18,4 +18,4 @@ export const classNames = (...classes: ClassValue[]): string => {
   });
 
   return result.filter(Boolean).join(' ');
-}; 
+};

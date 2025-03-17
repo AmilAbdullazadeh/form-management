@@ -32,7 +32,7 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   return (
     <ModalContext.Provider value={{ openModal, closeModal }}>
       {children}
-      
+
       {modalConfig && (
         <Modal
           isOpen={isOpen}
@@ -47,4 +47,4 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) =
       )}
     </ModalContext.Provider>
   );
-}; 
+};

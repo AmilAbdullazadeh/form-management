@@ -37,7 +37,7 @@
   @include items-center;
   gap: $spacing-sm;
   margin-bottom: $spacing-xs;
-  
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -58,7 +58,7 @@
 
 .fieldsContainer {
   margin-bottom: $spacing-md;
-  
+
   &.readOnlyFields {
     .dragHandle {
       display: none;

@@ -22,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
     {
       [styles.full]: fullWidth,
       [styles.loading]: isLoading,
-      [styles.disabled]: props.disabled
+      [styles.disabled]: props.disabled,
     },
     className
   );

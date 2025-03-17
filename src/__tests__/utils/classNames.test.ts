@@ -16,22 +16,23 @@ describe('classNames utility', () => {
   });
 
   test('handles object conditions', () => {
-    expect(classNames(
-      'btn',
-      { 'btn-primary': true, 'btn-disabled': false }
-    )).toBe('btn btn-primary');
+    expect(classNames('btn', { 'btn-primary': true, 'btn-disabled': false })).toBe(
+      'btn btn-primary'
+    );
   });
 
   test('handles complex combination of types', () => {
-    expect(classNames(
-      'form-control',
-      { 
-        'is-invalid': true, 
-        'is-valid': false 
-      },
-      null,
-      undefined,
-      'mb-3'
-    )).toBe('form-control is-invalid mb-3');
+    expect(
+      classNames(
+        'form-control',
+        {
+          'is-invalid': true,
+          'is-valid': false,
+        },
+        null,
+        undefined,
+        'mb-3'
+      )
+    ).toBe('form-control is-invalid mb-3');
   });
-}); 
+});

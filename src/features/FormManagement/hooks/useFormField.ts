@@ -29,25 +29,29 @@ export const useFormField = ({ initialFields = [] }: UseFormFieldsProps = {}) =>
     fieldModal.close();
   }, [fieldModal]);
 
-  const addField = useCallback((field: FormField) => {
-    if (selectedField) {
-      setFields(prev => prev.map(f => 
-        f.name === selectedField.name ? field : f
-      ));
-      setSelectedField(undefined);
-    } else {
-      setFields(prev => [...prev, field]);
-    }
-  }, [selectedField]);
+  const addField = useCallback(
+    (field: FormField) => {
+      if (selectedField) {
+        setFields(prev => prev.map(f => (f.name === selectedField.name ? field : f)));
+        setSelectedField(undefined);
+      } else {
+        setFields(prev => [...prev, field]);
+      }
+    },
+    [selectedField]
+  );
 
   const deleteField = useCallback((fieldName: string) => {
     setFields(prev => prev.filter(field => field.name !== fieldName));
   }, []);
 
-  const editField = useCallback((field: FormField) => {
-    setSelectedField(field);
-    fieldModal.open();
-  }, [fieldModal]);
+  const editField = useCallback(
+    (field: FormField) => {
+      setSelectedField(field);
+      fieldModal.open();
+    },
+    [fieldModal]
+  );
 
   const reorderFields = useCallback((reorderedFields: FormField[]) => {
     setFields(reorderedFields);
@@ -63,6 +67,6 @@ export const useFormField = ({ initialFields = [] }: UseFormFieldsProps = {}) =>
     deleteField,
     editField,
     reorderFields,
-    resetFields
+    resetFields,
   };
-}; 
+};

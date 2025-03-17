@@ -6,16 +6,16 @@
 
 .readOnlyForm {
   opacity: 0.9;
-  
-  input, 
-  select, 
-  textarea, 
+
+  input,
+  select,
+  textarea,
   .checkbox {
     cursor: not-allowed;
     background-color: $gray-100;
     border-color: $gray-300;
   }
-  
+
   label {
     color: $gray-600;
   }

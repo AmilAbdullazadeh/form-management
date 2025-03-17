@@ -1,7 +1,9 @@
-import { FormField } from "@/features/FormManagement/api/models/FormApiModel";
-import { FormModalMode } from "@/features/FormManagement/api/models/FormManagementModel";
+import { FormEvent } from 'react';
 
-import { FormModalContentProps } from "../FormModalContent/FormModalContent.types";
+import { FormField } from '@/features/FormManagement/api/models/FormApiModel';
+import { FormModalMode } from '@/features/FormManagement/api/models/FormManagementModel';
+
+import { FormModalContentProps } from '../FormModalContent/FormModalContent.types';
 
 export interface FormModalRenderProps extends FormModalContentProps {
   isOpen: boolean;
@@ -14,4 +16,4 @@ export interface FormModalRenderProps extends FormModalContentProps {
   handleSaveField: (field: FormField) => void;
   formId: string;
   selectedField?: FormField;
-} 
+}

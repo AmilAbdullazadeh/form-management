@@ -1,16 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { Form } from '@/features/FormManagement/api/models/FormApiModel';
-import { endpoints } from '@/resources/configs/ApiConfig';
+import { endpoints } from '@/resources/configs/apiConfig';
 
 export const formManagementSlice = createApi({
   reducerPath: 'formManagement',
   baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_URL }),
   tagTypes: ['Form'],
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     getForms: builder.query<Form[], void>({
       query: () => endpoints.forms.all,
-      providesTags: (result) => 
+      providesTags: result =>
         result
           ? [
               ...result.map(({ _id }) => ({ type: 'Form' as const, id: _id })),
@@ -18,23 +18,23 @@ export const formManagementSlice = createApi({
             ]
           : [{ type: 'Form', id: 'LIST' }],
     }),
-    
+
     getFormById: builder.query<Form, string>({
-      query: (id) => endpoints.forms.byId(id),
+      query: id => endpoints.forms.byId(id),
       providesTags: (_, __, id) => [{ type: 'Form', id }],
     }),
-    
+
     createForm: builder.mutation<Form, Omit<Form, '_id'>>({
-      query: (form) => ({
+      query: form => ({
         url: endpoints.forms.all,
         method: 'POST',
         body: form,
       }),
       invalidatesTags: [{ type: 'Form', id: 'LIST' }],
     }),
-    
+
     updateForm: builder.mutation<Form, Form>({
-      query: (form) => ({
+      query: form => ({
         url: endpoints.forms.byId(form._id!),
         method: 'PUT',
         body: form,
@@ -44,9 +44,9 @@ export const formManagementSlice = createApi({
         { type: 'Form', id: 'LIST' },
       ],
     }),
-    
+
     deleteForm: builder.mutation<void, string>({
-      query: (id) => ({
+      query: id => ({
         url: endpoints.forms.byId(id),
         method: 'DELETE',
       }),
@@ -61,4 +61,4 @@ export const {
   useCreateFormMutation,
   useUpdateFormMutation,
   useDeleteFormMutation,
-} = formManagementSlice; 
+} = formManagementSlice;

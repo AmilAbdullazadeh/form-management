@@ -3,7 +3,7 @@
   "plugins": ["import"],
   "rules": {
     "max-lines": ["error", 250],
-    "no-unused-vars": ["warn"],
+    "no-unused-vars": "off",
     "no-console": ["error", { "allow": ["error", "warn", "info"] }],
     "import/order": [
       "error",

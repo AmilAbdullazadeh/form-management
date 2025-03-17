@@ -22,6 +22,8 @@
       "@/*": ["./src/*"],
       "@/components/*": ["./src/components/*"],
       "@/features/*": ["./src/features/*"],
+      "@/shared/*": ["./src/shared/*"],
+      "@/resources/*": ["./src/resources/*"],
       "@/styles/*": ["./src/styles/*"],
       "@/store/*": ["./src/store/*"],
       "@/utils/*": ["./src/shared/utils/*"],

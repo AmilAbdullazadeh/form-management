@@ -1,6 +1,6 @@
-import { Status } from "@/shared/models/enums/status";
+import { Status } from '@/shared/models/enums/status';
 
-export interface MessageProps {     
-    message: string; 
-    type: Status;
-}   
+export interface MessageProps {
+  message: string;
+  type: Status;
+}

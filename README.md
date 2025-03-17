@@ -33,10 +33,11 @@ A modern web application for form management built with Next.js, TypeScript, Red
 
 ### Set up environment variables
 
-   Create a `.env` file in the root directory with the following variables:
-   ```
-   NEXT_PUBLIC_API_URL=your_api_url (e.g. https://user-management-back-drab.vercel.app)
-   ```
+Create a `.env` file in the root directory with the following variables:
+
+```
+NEXT_PUBLIC_API_URL=your_api_url (e.g. https://user-management-back-drab.vercel.app)
+```
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
@@ -51,13 +52,15 @@ A modern web application for form management built with Next.js, TypeScript, Red
 
 Our project structure follows a feature-based architecture with clear separation of concerns:
 
-1. **Feature-Based Organization**: 
+1. **Feature-Based Organization**:
+
    - Each feature (like FormManagement) is isolated with its own UI, API, and hooks
    - Promotes code ownership and clear boundaries
    - Makes navigation intuitive for new developers
    - Simplifies feature addition and removal
 
 2. **Shared Resources**:
+
    - Common components, hooks, and utilities in `/shared` directory
    - Prevents code duplication and ensures consistency
    - Improves maintainability and promotes code reuse
@@ -68,6 +71,7 @@ Our project structure follows a feature-based architecture with clear separation
    - Hooks encapsulate complex behavior
 
 Advantages of this structure:
+
 - **Scalability**: Easy to add new features without affecting existing code
 - **Maintainability**: Related code stays together, improving understanding
 - **Testability**: Clear boundaries make unit testing simpler
@@ -95,6 +99,7 @@ import { SomeUtil } from '../../utils/someUtil';
 ```
 
 Advantages:
+
 - **Consistent organization**: Makes code review easier
 - **Clear dependency hierarchy**: External vs. internal dependencies
 - **Improved readability**: Groups related imports together
@@ -113,6 +118,7 @@ export enum ButtonVariant { ... }
 ```
 
 Advantages:
+
 - **Explicit imports**: Prevents accidental imports of unwanted elements
 - **Tree-shakable**: Bundlers can eliminate unused exports
 - **Better IDE support**: Autocompletion works more effectively
@@ -141,7 +147,9 @@ models/
       status.ts    # Status enums
       variant.ts   # UI variant enums
 ```
+
 This approach:
+
 - **Co-locates** types with their implementation
 - **Separates concerns** between implementation and type definitions
 - **Improves discoverability** by keeping related files together
@@ -184,13 +192,16 @@ src/__tests__/
 If using external libraries instead of custom components, these would be good choices:
 
 #### Component Libraries
+
 - **Shadcn UI**: Modern, accessible components with minimal bundle size
 
 #### Form Management
+
 - **React Hook Form**: Performance-focused form management
 - **Zod**: TypeScript-first schema validation
 
 #### Styling Alternatives
+
 - **Tailwind CSS**: Utility-first CSS framework for rapid UI development
 
 ## Form Management
@@ -205,6 +216,7 @@ The application provides a comprehensive form management system:
 ## State Management
 
 Redux Toolkit handles application state with:
+
 - Feature-based slices
 - RTK Query for API integration
 

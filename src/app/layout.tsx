@@ -2,11 +2,10 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import React from 'react';
 
-import { ModalProvider } from '@/shared/ui/Modal/ModalContent/ModalContext';
 import { ReduxProvider } from '@/shared/providers/ReduxProvider';
+import { ModalProvider } from '@/shared/ui/Modal/ModalContent/ModalContext';
 
 import { defaultMetadata } from './metadata';
-
 
 import '@/shared/styles/global.scss';
 
@@ -26,11 +25,9 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ReduxProvider>
-          <ModalProvider>
-            {children}
-          </ModalProvider>
+          <ModalProvider>{children}</ModalProvider>
         </ReduxProvider>
       </body>
     </html>
   );
-} 
+}

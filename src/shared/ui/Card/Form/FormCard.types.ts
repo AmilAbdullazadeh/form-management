@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
-import { Form } from "@/features/FormManagement/api/models/FormApiModel";
-import { Variant } from "@/shared/models/types/base";
+import { Form } from '@/features/FormManagement/api/models/FormApiModel';
+import { Variant } from '@/shared/models/types/base';
 
 export type BadgeVariant = Variant;
 

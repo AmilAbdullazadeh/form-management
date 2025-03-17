@@ -12,19 +12,17 @@ import { Message } from '@/shared/ui/Message/Message';
 import styles from './FormModalContent.module.scss';
 import { FormModalContentProps } from './FormModalContent.types';
 
-
-
-export const FormContent = ({ 
-  values, 
-  errors, 
-  handleChange, 
-  isViewOnly, 
-  formFields, 
+export const FormContent = ({
+  values,
+  errors,
+  handleChange,
+  isViewOnly,
+  formFields,
   handleOpenFieldModal,
   handleDeleteField,
   handleEditField,
   submitError,
-  reorderFormFields
+  reorderFormFields,
 }: FormModalContentProps) => {
   const fieldCount = formFields.length;
 
@@ -44,7 +42,7 @@ export const FormContent = ({
           disabled={isViewOnly}
         />
       </div>
-      
+
       <div className={styles.checkboxGroup}>
         <Checkbox
           id="isVisible"
@@ -54,7 +52,7 @@ export const FormContent = ({
           onChange={handleChange}
           disabled={isViewOnly}
         />
-        
+
         <Checkbox
           id="isReadOnly"
           name="isReadOnly"
@@ -73,9 +71,9 @@ export const FormContent = ({
           </div>
         </div>
       )}
-      
+
       <div className={`${styles.fieldsContainer} ${isViewOnly ? styles.readOnlyFields : ''}`}>
-        <FieldList 
+        <FieldList
           fields={formFields}
           isViewOnly={isViewOnly}
           onAddField={handleOpenFieldModal}
@@ -83,13 +81,12 @@ export const FormContent = ({
           onEditField={handleEditField}
           onReorderFields={!isViewOnly ? reorderFormFields : undefined}
           addButtonLabel="Add field"
-          emptyMessage={isViewOnly 
-            ? FORM_EMPTY_STATES.NO_FIELDS_FOUND
-            : FORM_EMPTY_STATES.NO_FIELDS_ADDED
+          emptyMessage={
+            isViewOnly ? FORM_EMPTY_STATES.NO_FIELDS_FOUND : FORM_EMPTY_STATES.NO_FIELDS_ADDED
           }
         />
       </div>
-      
+
       {submitError && (
         <div className={styles.submitError}>
           <Message message={submitError} type={Status.ERROR} />
@@ -97,4 +94,4 @@ export const FormContent = ({
       )}
     </>
   );
-}; 
+};

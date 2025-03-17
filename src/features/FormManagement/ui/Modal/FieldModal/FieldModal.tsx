@@ -13,31 +13,23 @@ import { Select } from '@/shared/ui/Select/Select';
 
 import styles from './FieldModal.module.scss';
 
-
 export const FieldModal: React.FC<FieldModalProps> = ({
   isOpen,
   onClose,
   onSave,
   existingFields = [],
-  fieldToEdit
+  fieldToEdit,
 }) => {
   const isEditMode = !!fieldToEdit;
-  
-  const { 
-    values, 
-    errors, 
-    isSubmitting,
-    handleChange, 
-    handleSubmit,
-    resetForm
-  } = useField({
+
+  const { values, errors, isSubmitting, handleChange, handleSubmit, resetForm } = useField({
     isOpen,
     onSave,
     onClose,
     existingFields,
-    fieldToEdit
+    fieldToEdit,
   });
-  
+
   const handleCloseModal = useCallback(() => {
     resetForm();
     onClose();
@@ -45,25 +37,16 @@ export const FieldModal: React.FC<FieldModalProps> = ({
 
   const modalFooter = (
     <div className={styles.footer}>
-          <Button 
-            variant="outline" 
-            onClick={handleCloseModal}
-            disabled={isSubmitting}
-          >
-            Cancel
-          </Button>
-          
-          <Button 
-            type="submit"
-            form="field-form"
-            disabled={isSubmitting}
-            isLoading={isSubmitting}
-          >
-            {isEditMode ? 'Update' : 'Create'}
-          </Button>
-        </div>
+      <Button variant="outline" onClick={handleCloseModal} disabled={isSubmitting}>
+        Cancel
+      </Button>
+
+      <Button type="submit" form="field-form" disabled={isSubmitting} isLoading={isSubmitting}>
+        {isEditMode ? 'Update' : 'Create'}
+      </Button>
+    </div>
   );
-  
+
   return (
     <Modal
       isOpen={isOpen}
@@ -85,7 +68,7 @@ export const FieldModal: React.FC<FieldModalProps> = ({
             autoFocus
           />
         </div>
-        
+
         <div className={styles.formGroup}>
           <Select
             id="type"
@@ -98,7 +81,7 @@ export const FieldModal: React.FC<FieldModalProps> = ({
             required
           />
         </div>
-        
+
         <div className={styles.formGroup}>
           <Checkbox
             id="isRequired"
@@ -111,4 +94,4 @@ export const FieldModal: React.FC<FieldModalProps> = ({
       </form>
     </Modal>
   );
-}; 
+};

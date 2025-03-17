@@ -4,7 +4,8 @@ import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 export const metadata: Metadata = {
   title: 'Forms',
-  description: 'Manage and organize your forms efficiently. Create, edit, and track form submissions in one place.',
+  description:
+    'Manage and organize your forms efficiently. Create, edit, and track form submissions in one place.',
 };
 
 export default function HomePage() {
@@ -13,11 +14,11 @@ export default function HomePage() {
       <div>
         <Skeleton type="title" />
         <Skeleton type="text" size="md" />
-        
+
         <div>
           <Skeleton type="card" count={2} />
         </div>
       </div>
     </main>
   );
-} 
+}
