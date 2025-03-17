@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { classNames } from '@/shared/utils/classNames';
+
 import styles from './Skeleton.module.scss';
 import { SkeletonProps } from './Skeleton.types';
 
@@ -12,44 +14,22 @@ export const Skeleton: React.FC<SkeletonProps> = ({
   style = {},
   count = 1,
 }) => {
-  // Generate the appropriate CSS class based on type and size
-  const getClassName = () => {
-    let baseClass = styles.skeleton;
+  const skeletonClass = classNames(
+    styles.skeleton,
+    type !== 'custom' && styles[`skeleton-${type}`],
+    type === 'text' && size !== 'full' && styles[`skeleton-text-${size}`],
+    className
+  );
 
-    if (type === 'custom') {
-      return baseClass;
-    }
-
-    if (type === 'text' && size !== 'full') {
-      return `${baseClass} ${styles['skeleton-text']} ${styles[`skeleton-text-${size}`]}`;
-    }
-
-    return `${baseClass} ${styles[`skeleton-${type}`]}`;
-  };
-
-  // Generate custom styles for the custom type
-  const getStyles = () => {
-    const customStyles: React.CSSProperties = { ...style };
-
-    if (type === 'custom') {
-      if (width) customStyles.width = width;
-      if (height) customStyles.height = height;
-    }
-
-    return customStyles;
-  };
-
-  // Render multiple skeletons if count > 1
   if (count > 1) {
     return (
       <>
         {Array.from({ length: count }).map((_, index) => (
-          <div key={index} className={`${getClassName()} ${className}`} style={getStyles()} />
+          <div key={index} className={skeletonClass} />
         ))}
       </>
     );
   }
 
-  // Render a single skeleton
-  return <div className={`${getClassName()} ${className}`} style={getStyles()} />;
+  return <div className={skeletonClass} />;
 };
