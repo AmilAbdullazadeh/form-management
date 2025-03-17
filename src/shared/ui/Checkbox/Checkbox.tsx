@@ -2,44 +2,30 @@
 
 import React, { forwardRef } from 'react';
 
+import { classNames } from '@/shared/utils/classNames';
+
+import { CheckboxProps } from './Checbox.types';
 import styles from './Checkbox.module.scss';
-import { CheckboxProps } from './types';
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, error, helperText, className = '', containerClassName = '', ...props }, ref) => {
-    // Generate checkbox classes based on props
-    const getCheckboxClasses = () => {
-      const classes = [styles.checkbox];
+    const containerClasses = classNames(
+      styles.checkboxGroup,
+      containerClassName
+    );
 
-      if (error) {
-        classes.push(styles.error);
-      }
-
-      if (className) {
-        classes.push(className);
-      }
-
-      return classes.join(' ');
-    };
-
-    // Generate container classes based on props
-    const getContainerClasses = () => {
-      const classes = [styles.checkboxGroup];
-
-      if (containerClassName) {
-        classes.push(containerClassName);
-      }
-
-      return classes.join(' ');
-    };
+    const checkboxClasses = classNames(
+      styles.checkbox,
+      className
+    );
 
     return (
-      <div className={getContainerClasses()}>
+      <div className={containerClasses}>
         <div className={styles.container}>
           <input
             ref={ref}
             type="checkbox"
-            className={getCheckboxClasses()}
+            className={checkboxClasses}
             id={props.id}
             {...props}
           />

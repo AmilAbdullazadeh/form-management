@@ -14,7 +14,6 @@ import styles from './FieldList.module.scss';
 import { FieldListProps } from './FieldList.types';
 
 
-
 export const FieldList: React.FC<FieldListProps> = ({
   fields,
   isViewOnly,

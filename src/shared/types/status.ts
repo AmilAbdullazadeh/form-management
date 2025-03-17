@@ -4,3 +4,10 @@ export enum State {
     SUCCEEDED = 'succeeded',
     FAILED = 'failed'
 }
+
+export enum Status {
+    ERROR = 'error',
+    SUCCESS = 'success',
+    WARNING = 'warning',
+    INFO = 'info'
+}

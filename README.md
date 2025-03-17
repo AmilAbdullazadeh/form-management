@@ -94,6 +94,156 @@ user-management/
 └── tsconfig.json         # TypeScript configuration
 ```
 
+### Project Structure Philosophy
+
+Our project structure follows a feature-based architecture with clear separation of concerns:
+
+1. **Feature-Based Organization**: 
+   - Each feature (like FormManagement) is isolated with its own UI, API, and hooks
+   - Promotes code ownership and clear boundaries
+   - Makes navigation intuitive for new developers
+   - Simplifies feature addition and removal
+
+2. **Shared Resources**:
+   - Common components, hooks, and utilities in `/shared` directory
+   - Prevents code duplication and ensures consistency
+   - Improves maintainability and promotes code reuse
+
+3. **Clear Module Separation**:
+   - UI components are separate from business logic
+   - API calls are isolated in dedicated modules
+   - Hooks encapsulate complex behavior
+
+Advantages of this structure:
+- **Scalability**: Easy to add new features without affecting existing code
+- **Maintainability**: Related code stays together, improving understanding
+- **Testability**: Clear boundaries make unit testing simpler
+- **Collaboration**: Multiple developers can work on different features simultaneously
+
+## Import/Export Pattern and Type Organization
+
+### Import Strategy
+
+We follow consistent import patterns for better readability and organization:
+
+```typescript
+// 1. External dependencies first
+import React from 'react';
+import { useDispatch } from 'react-redux';
+
+// 2. Local styles
+import styles from './Component.module.scss';
+
+// 3. Type imports
+import { ComponentProps } from './Component.types';
+
+// 4. Related components/utilities
+import { SomeUtil } from '../../utils/someUtil';
+```
+
+Advantages:
+- **Consistent organization**: Makes code review easier
+- **Clear dependency hierarchy**: External vs. internal dependencies
+- **Improved readability**: Groups related imports together
+
+### Export Pattern
+
+Components and types follow explicit named exports:
+
+```typescript
+// Component export
+export const Button: React.FC<ButtonProps> = ({ ... }) => { ... };
+
+// Type export
+export type ButtonProps = { ... };
+export enum ButtonVariant { ... }
+```
+
+Advantages:
+- **Explicit imports**: Prevents accidental imports of unwanted elements
+- **Tree-shakable**: Bundlers can eliminate unused exports
+- **Better IDE support**: Autocompletion works more effectively
+
+### Type Organization
+
+We organize types in dedicated `.types.ts` files adjacent to their components:
+
+```
+Button/
+├── Button.tsx           # Component implementation
+├── Button.types.ts      # Component types
+└── Button.module.scss   # Component styles
+```
+
+For shared types, we group them by domain in the `types` directory:
+```
+types/
+├── base.ts      # Basic shared types
+├── icon.ts      # Icon-related types
+├── status.ts    # Status-related types
+├── variant.ts   # UI variant types
+```
+
+This approach:
+- **Co-locates** types with their implementation
+- **Separates concerns** between implementation and type definitions
+- **Improves discoverability** by keeping related files together
+
+## Custom Components and Utilities
+
+### Why Custom Components?
+
+We built custom components instead of using component libraries for several reasons:
+
+1. **Full Control**: Complete ownership of component behavior and styling
+2. **Performance**: Minimal bundle size with only what we need
+3. **Consistency**: Tailored specifically to our design system
+4. **Learning**: Building components from scratch improves team knowledge
+5. **No External Dependencies**: Reduces vulnerability to third-party issues
+
+### Custom Hooks
+
+Custom hooks were created to encapsulate and reuse complex logic across the application:
+
+- **useForm**: Handles form state, validation, and submission with TypeScript support
+- **useModal**: A versatile hook for managing modal dialog state with support for both simple open/close functionality and more complex data management
+- **useDragAndDrop**: Implements drag and drop functionality for UI elements
+
+### UI Components
+
+Custom UI components provide consistency and reusability:
+
+- **Shared components**: Reusable UI elements like buttons, cards, inputs, modals, etc.
+- **Form components**: Specialized components for form building
+
+### Utilities and Helpers
+
+Utility functions solve common problems and reduce code duplication:
+
+- **validation.ts**: Form validation logic and rules
+- **classNames.ts**: Utility function for managing class names
+
+### Library Alternatives
+
+If using external libraries instead of custom components, these would be good choices:
+
+#### Component Libraries
+- **Shadcn UI**: Modern, accessible components with minimal bundle size
+
+#### Form Management
+- **React Hook Form**: Performance-focused form management
+- **Zod**: TypeScript-first schema validation
+
+#### Styling Alternatives
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
+
+The decision between custom components vs. libraries should consider:
+- Team expertise and learning curve
+- Project timeline and resources
+- Long-term maintenance requirements
+- Bundle size constraints
+- Design system complexity
+
 ## Form Management
 
 The application provides a comprehensive form management system:

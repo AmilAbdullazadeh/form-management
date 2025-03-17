@@ -46,6 +46,24 @@
   }
 }
 
+.disabled {
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  border: 1px solid $gray-200;
+  border-radius: $border-radius-sm;
+  background-color: $gray-100;
+  color: black;
+  font-weight: $font-weight-medium;
+
+  &:focus {
+    border-color: $gray-200;
+    outline: none;
+    pointer-events: none !important;
+    box-shadow: none;
+  }
+}
+
+
 .errorText {
   margin-top: $spacing-xs;
   font-size: $font-size-sm;
