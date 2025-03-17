@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export type ModalSize = 'sm' | 'md' | 'lg';
+import { Size } from "@/shared/models/types/base";
 
 export interface ModalProps {
   isOpen: boolean;
@@ -8,7 +8,7 @@ export interface ModalProps {
   title: string;
   children: ReactNode;
   footer?: ReactNode;
-  size?: ModalSize;
+  size?: Size;
   closeOnOutsideClick?: boolean;
 }
 
@@ -16,6 +16,6 @@ export interface ModalConfig {
     title: string;
     content: ReactNode;
     footer?: ReactNode;
-    size?: ModalSize;
+    size?: Size;
     closeOnOutsideClick?: boolean;
 }

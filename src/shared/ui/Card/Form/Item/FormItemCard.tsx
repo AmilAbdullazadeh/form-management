@@ -5,13 +5,14 @@ import React from 'react';
 import { Eye } from '@/resources/assets/icons/Eye';
 import { Trash } from '@/resources/assets/icons/Trash';
 import { Update } from '@/resources/assets/icons/Update';
+import { Status } from '@/shared/models/enums/status';
 import { Button } from '@/shared/ui/Button/Button';
 import { FormCard } from '@/shared/ui/Card/Form/FormCard';
 import { BadgeVariant } from '@/shared/ui/Card/Form/FormCard.types';
-import { Variant } from '@/shared/types/variant';
 
 import styles from './FormItemCard.module.scss';
 import { FormItemCardProps } from './FormItemCard.types';
+
 
 export const FormItemCard: React.FC<FormItemCardProps> = ({
   form,
@@ -26,12 +27,12 @@ export const FormItemCard: React.FC<FormItemCardProps> = ({
     if (type === 'visible') {
       return {
         text: isVisible ? 'Visible' : 'Hidden',
-        variant: isVisible ? Variant.SUCCESS : Variant.DANGER
+        variant: isVisible ? Status.SUCCESS : Status.DANGER
       };
     } else {
       return {
         text: isReadOnly ? 'Read only' : 'Editable',
-        variant: isReadOnly ? Variant.WARNING : Variant.SUCCESS
+        variant: isReadOnly ? Status.WARNING : Status.SUCCESS
       };
     }
   };

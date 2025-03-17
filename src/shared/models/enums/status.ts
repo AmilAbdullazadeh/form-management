@@ -9,5 +9,9 @@ export enum Status {
     ERROR = 'error',
     SUCCESS = 'success',
     WARNING = 'warning',
-    INFO = 'info'
+    INFO = 'info',
+    DANGER = 'danger',
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary',
+    OUTLINE = 'outline',
 }
