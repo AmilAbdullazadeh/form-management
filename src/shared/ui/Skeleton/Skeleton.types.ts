@@ -1,12 +1,13 @@
 import { CSSProperties } from 'react';
 
-export type SkeletonType = 'text' | 'title' | 'card' | 'circle' | 'custom';
+import { Size } from '@/shared/models/types/base';
 
-export type SkeletonSize = 'sm' | 'md' | 'lg' | 'full';
+
+export type SkeletonType = 'text' | 'title' | 'card' | 'circle' | 'custom';
 
 export interface SkeletonProps {
   type?: SkeletonType;
-  size?: SkeletonSize;
+  size?: Size;
   width?: string | number;
   height?: string | number;
   className?: string;
