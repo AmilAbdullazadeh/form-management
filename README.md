@@ -31,32 +31,11 @@ A modern web application for form management built with Next.js, TypeScript, Red
 - Node.js 18.x or later
 - npm 9.x or later
 
-### Installation
+### Set up environment variables
 
-1. Clone the repository:
-
-   ```bash
-   git clone <repository-url>
-   cd user-management
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Set up environment variables:
-   
    Create a `.env` file in the root directory with the following variables:
    ```
    NEXT_PUBLIC_API_URL=your_api_url
-   ```
-
-4. Run the development server:
-
-   ```bash
-   npm run dev
    ```
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -64,35 +43,9 @@ A modern web application for form management built with Next.js, TypeScript, Red
 ## Available Scripts
 
 - `npm run dev`: Start the development server
-- `npm run build`: Build the application for production
-- `npm run start`: Start the production server
 - `npm run lint`: Run ESLint to check code quality
 - `npm run format`: Format code with Prettier
 - `npm run test`: Run tests
-- `npm run test:watch`: Run tests in watch mode
-- `npm run test:coverage`: Run tests with coverage report
-
-## Project Structure
-
-```
-user-management/
-├── src/
-│   ├── app/              # Next.js App Router
-│   │   ├── forms/        # Form management pages
-│   │   ├── layout.tsx    # Root layout
-│   │   └── page.tsx      # Home page
-│   ├── features/         # Feature modules
-│   │   └── FormManagement/ # Form management feature
-│   ├── shared/           # Shared components and utilities
-│   ├── resources/        # Static resources and assets
-│   └── middleware.ts     # Next.js middleware
-├── public/               # Static files
-├── .eslintrc.json        # ESLint configuration
-├── .prettierrc           # Prettier configuration
-├── commitlint.config.js  # Commitlint configuration
-├── next.config.js        # Next.js configuration
-└── tsconfig.json         # TypeScript configuration
-```
 
 ### Project Structure Philosophy
 
@@ -175,15 +128,19 @@ Button/
 └── Button.module.scss   # Component styles
 ```
 
-For shared types, we group them by domain in the `types` directory:
-```
-types/
-├── base.ts      # Basic shared types
-├── icon.ts      # Icon-related types
-├── status.ts    # Status-related types
-├── variant.ts   # UI variant types
-```
+For shared types, we group them by domain in the `models` directory:
 
+```
+models/
+   types/
+      base.ts      # Basic shared types
+      icon.ts      # Icon-related types
+      status.ts    # Status-related types
+      variant.ts   # UI variant types
+   enums/
+      status.ts    # Status enums
+      variant.ts   # UI variant enums
+```
 This approach:
 - **Co-locates** types with their implementation
 - **Separates concerns** between implementation and type definitions
@@ -213,15 +170,14 @@ Custom hooks were created to encapsulate and reuse complex logic across the appl
 
 Custom UI components provide consistency and reusability:
 
-- **Shared components**: Reusable UI elements like buttons, cards, inputs, modals, etc.
-- **Form components**: Specialized components for form building
+The project includes a testing suite with Jest and React Testing Library:
 
-### Utilities and Helpers
-
-Utility functions solve common problems and reduce code duplication:
-
-- **validation.ts**: Form validation logic and rules
-- **classNames.ts**: Utility function for managing class names
+```
+src/__tests__/
+├── hooks/     # Hook tests
+├── ui/        # Component tests
+└── utils/     # Utility tests
+```
 
 ### Library Alternatives
 
@@ -237,13 +193,6 @@ If using external libraries instead of custom components, these would be good ch
 #### Styling Alternatives
 - **Tailwind CSS**: Utility-first CSS framework for rapid UI development
 
-The decision between custom components vs. libraries should consider:
-- Team expertise and learning curve
-- Project timeline and resources
-- Long-term maintenance requirements
-- Bundle size constraints
-- Design system complexity
-
 ## Form Management
 
 The application provides a comprehensive form management system:
@@ -255,11 +204,9 @@ The application provides a comprehensive form management system:
 
 ## State Management
 
-Redux Toolkit is used for state management with the following structure:
-
-- **Slices**: Feature-based state slices
-- **RTK Query**: API integration for data fetching
-- **Middleware**: Custom middleware for logging and analytics
+Redux Toolkit handles application state with:
+- Feature-based slices
+- RTK Query for API integration
 
 ## Styling
 
@@ -267,7 +214,6 @@ The application uses SCSS for styling with:
 
 - Modular CSS approach
 - Responsive design principles
-- Theme customization
 - Accessibility compliance
 
 ## Commit Message Convention
