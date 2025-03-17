@@ -7,22 +7,20 @@
   right: 0;
   bottom: 0;
   background-color: rgba($black, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   z-index: 1000;
   padding: $spacing-md;
 }
 
 .modal {
+  display: flex;
+  flex-direction: column;
   background-color: $white;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba($black, 0.15);
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
 
   &.sm {
     max-width: 400px;
@@ -38,9 +36,7 @@
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex-between-center;
   padding: $spacing-md;
   border-bottom: 1px solid $gray-200;
 }
@@ -57,9 +53,7 @@
   border: none;
   cursor: pointer;
   color: $gray-600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   border: none !important;
 
   &:hover {
@@ -73,9 +67,9 @@
 }
 
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  @include flex;
+  @include items-center;
+  @include justify-end;
   padding: $spacing-md;
   border-top: 1px solid $gray-200;
   gap: $spacing-sm;
