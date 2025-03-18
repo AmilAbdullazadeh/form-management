@@ -16,8 +16,13 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/forms', request.url));
   }
 
-  // Otherwise, continue with the request
-  return NextResponse.next();
+  const response = NextResponse.next();
+
+  response.headers.set('Access-Control-Allow-Origin', '*');
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  
+  return response;
 }
 
 // Configure the paths that should be matched by this middleware
