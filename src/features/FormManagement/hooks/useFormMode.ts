@@ -8,11 +8,13 @@ import {
 export const useFormMode = ({ mode, initialValues }: FormModeProps) => {
   const isUpdateMode = mode === FormModalMode.UPDATE;
   const isViewOnly = mode === FormModalMode.VIEW || (isUpdateMode && initialValues.isReadOnly);
+  const isDeleteMode = mode === FormModalMode.DELETE;
+  const isCreateMode = mode === FormModalMode.CREATE;
 
   return {
     isUpdateMode,
     isViewOnly,
-    isCreateMode: mode === FormModalMode.CREATE,
-    isViewMode: mode === FormModalMode.VIEW,
+    isDeleteMode,
+    isCreateMode,
   };
 };
